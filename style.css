@@ -1,0 +1,332 @@
+/* 
+  ----------------------------------------------------------
+  RESET BÁSICO E VARIÁVEIS DE TEMA 
+  ----------------------------------------------------------
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte global */
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Variáveis principais do tema (modo claro e escuro) */
+:root {
+  /* Cores neutras (usadas no modo claro) */
+  --bg-color-light: linear-gradient(to bottom right, #e3fdfd, #f7f7f7);
+  --container-bg-light: #ffffff;
+  --text-color-light: #333;
+  --cell-default-light: #b7c2ca;
+  --cell-revealed-light: #e7ebef;
+  --mine-color-light: #ff6961;
+  --button-bg-light: linear-gradient(135deg, #ff6868, #ff9595);
+  --button-bg-hover-light: linear-gradient(135deg, #ff5757, #ff8b8b);
+  --select-bg-light: #f1f1f1;
+  
+  /* Cores neutras (usadas no modo escuro) */
+  --bg-color-dark: linear-gradient(to bottom right, #232526, #414345);
+  --container-bg-dark: #2e3940;
+  --text-color-dark: #f3f3f3;
+  --cell-default-dark: #4f5d75;
+  --cell-revealed-dark: #7b8792;
+  --mine-color-dark: #e63946;
+  --button-bg-dark: linear-gradient(135deg, #d62828, #eb5757);
+  --button-bg-hover-dark: linear-gradient(135deg, #ba181b, #d64848);
+  --select-bg-dark: #3c474e;
+
+  /* Opções de acentuação (para números) */
+  --accent-blue: #1976d2;
+  --accent-green: #388e3c;
+  --accent-pink: #d81b60;
+}
+
+/* 
+  ----------------------------------------------------------
+  MODO CLARO VS MODO ESCURO: Mapeamento de cores 
+  ----------------------------------------------------------
+*/
+body.theme-light {
+  background: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+body.theme-light .container {
+  background: var(--container-bg-light);
+}
+
+body.theme-light .cell {
+  background-color: var(--cell-default-light);
+}
+
+body.theme-light .cell.revealed {
+  background-color: var(--cell-revealed-light);
+}
+
+body.theme-light .cell.mine {
+  background-color: var(--mine-color-light) !important;
+}
+
+body.theme-light #resetButton {
+  background: var(--button-bg-light);
+}
+
+body.theme-light #resetButton:hover {
+  background: var(--button-bg-hover-light);
+}
+
+body.theme-light select {
+  background-color: var(--select-bg-light);
+}
+
+/* MODO ESCURO */
+body.theme-dark {
+  background: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+body.theme-dark .container {
+  background: var(--container-bg-dark);
+}
+
+body.theme-dark .cell {
+  background-color: var(--cell-default-dark);
+}
+
+body.theme-dark .cell.revealed {
+  background-color: var(--cell-revealed-dark);
+}
+
+body.theme-dark .cell.mine {
+  background-color: var(--mine-color-dark) !important;
+}
+
+body.theme-dark #resetButton {
+  background: var(--button-bg-dark);
+}
+
+body.theme-dark #resetButton:hover {
+  background: var(--button-bg-hover-dark);
+}
+
+body.theme-dark select {
+  background-color: var(--select-bg-dark);
+}
+
+/* 
+  ----------------------------------------------------------
+  CORES DE ACENTUAÇÃO (NUMEROS) 
+  ----------------------------------------------------------
+*/
+body.accent-blue .cell.num1,
+body.accent-blue .cell.num2,
+body.accent-blue .cell.num3,
+body.accent-blue .cell.num4,
+body.accent-blue .cell.num5,
+body.accent-blue .cell.num6,
+body.accent-blue .cell.num7,
+body.accent-blue .cell.num8 {
+  color: var(--accent-blue);
+}
+
+body.accent-green .cell.num1,
+body.accent-green .cell.num2,
+body.accent-green .cell.num3,
+body.accent-green .cell.num4,
+body.accent-green .cell.num5,
+body.accent-green .cell.num6,
+body.accent-green .cell.num7,
+body.accent-green .cell.num8 {
+  color: var(--accent-green);
+}
+
+body.accent-pink .cell.num1,
+body.accent-pink .cell.num2,
+body.accent-pink .cell.num3,
+body.accent-pink .cell.num4,
+body.accent-pink .cell.num5,
+body.accent-pink .cell.num6,
+body.accent-pink .cell.num7,
+body.accent-pink .cell.num8 {
+  color: var(--accent-pink);
+}
+
+/* 
+  ----------------------------------------------------------
+  ESTILOS GERAIS 
+  ----------------------------------------------------------
+*/
+.container {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  width: 90%;
+  max-width: 650px;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.info {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.difficulty, .theme-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botão de reinício */
+#resetButton {
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.1s;
+}
+
+#resetButton:active {
+  transform: scale(0.95);
+}
+
+/* Select */
+select {
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  color: inherit;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: box-shadow 0.3s, transform 0.1s;
+}
+
+select:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+select:active {
+  transform: scale(0.95);
+}
+
+.board {
+  display: grid;
+  gap: 3px;
+  margin: 0 auto;
+  max-width: 100%;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Célula do tabuleiro */
+.cell {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+  position: relative;
+  color: inherit;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* Hover e clique na célula */
+.cell:hover {
+  filter: brightness(1.1);
+}
+.cell:active {
+  transform: scale(0.95);
+}
+
+/* Quando revelado */
+.cell.revealed {
+  cursor: default;
+  filter: none;
+}
+
+/* Se for bomba */
+.cell.mine {
+  color: #fff;
+}
+
+/* Bandeira */
+.cell.flag::after {
+  content: "🚩";
+  position: absolute;
+  font-size: 1rem;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 
+  ----------------------------------------------------------
+  RESPONSIVIDADE 
+  ----------------------------------------------------------
+*/
+@media(max-width: 600px) {
+  .info {
+    font-size: 1rem;
+  }
+  
+  .difficulty, .theme-controls {
+    gap: 8px;
+  }
+  
+  #resetButton {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  select {
+    font-size: 0.85rem;
+    padding: 4px 6px;
+  }
+}
+
+@media(max-width: 400px) {
+  .cell {
+    width: 26px;
+    height: 26px;
+    font-size: 0.8rem;
+  }
+}

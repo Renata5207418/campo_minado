@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Campo Minado</title>
+  <!-- Fonte do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="theme-light accent-blue">
+  <div class="container">
+    <h1>Campo Minado</h1>
+    
+    <div class="controls">
+      <div class="info">
+        <span>⏱️ Tempo: <span id="timer">0</span> s</span>
+        <span>💣 Restantes: <span id="minesLeft">10</span></span>
+      </div>
+      
+      <div class="difficulty">
+        <label for="difficultySelect">Dificuldade:</label>
+        <select id="difficultySelect">
+          <option value="beginner">Iniciante (9x9 - 10)</option>
+          <option value="intermediate">Intermediário (16x16 - 40)</option>
+          <option value="expert">Expert (30x16 - 99)</option>
+        </select>
+        
+        <button id="resetButton">Reiniciar</button>
+      </div>
+
+      <div class="theme-controls">
+        <label for="themeSelect">Modo:</label>
+        <select id="themeSelect">
+          <option value="light">Claro</option>
+          <option value="dark">Escuro</option>
+        </select>
+
+        <label for="colorSelect">Cor:</label>
+        <select id="colorSelect">
+          <option value="blue">Azul</option>
+          <option value="green">Verde</option>
+          <option value="pink">Rosa</option>
+        </select>
+      </div>
+    </div>
+    
+    <div id="board" class="board"></div>
+  </div>
+  
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
